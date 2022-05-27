@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import warnings
 import shutil
-import tensorflow as tf
+import tensorflow as tfS
+from keras import backend as K
 from sklearn.metrics import confusion_matrix
 warnings.filterwarnings("ignore")
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,3 +112,15 @@ def plot_confusion_matrix(y_true, y_pred, classes,
                   color="white" if cm[i, j] > thresh else "black")
   fig.tight_layout()
   return ax
+
+def dice_coef(y_true, y_pred):
+    intersection = K.sum(y_true * y_pred, axis=[1,2,3])
+    union = K.sum(y_true, axis=[1,2,3]) + K.sum(y_pred, axis=[1,2,3])
+    dice = K.mean((2. * intersection)/(union), axis=0)
+    return dice
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+def iou_coef(y_true, y_pred):
+    intersection = K.sum(K.abs(y_true * y_pred), axis=[1,2,3])
+    union = K.sum(y_true,[1,2,3])+K.sum(y_pred,[1,2,3])-intersection
+    iou = K.mean((intersection) / (union), axis=0)
+    return iou
