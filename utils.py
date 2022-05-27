@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import warnings
 import shutil
-import tensorflow as tfS
+import tensorflow as tf
 from keras import backend as K
 from sklearn.metrics import confusion_matrix
 warnings.filterwarnings("ignore")
