@@ -15,7 +15,7 @@ MODELS = {'fcn':get_FCN,
           'segnetvgg16':get_SegNetVGG16}
 
 COMPILE_PARAMETERS = {"loss":tf.keras.losses.CategoricalCrossentropy(),
-          "metrics":[utils.dice_coef, utils.iou_coef]}S
+          "metrics":[utils.dice_coef, utils.iou_coef]}
 
 def print_available_models():
     print('Availaible models: ')
