@@ -16,7 +16,7 @@ MODELS = {'fcn':get_FCN,
           'segnetvgg16':get_SegNetVGG16,
           'resunet':get_ResUnet}
 
-OPTIMICER = {'Adam':tf.keras.optimizers.Adam,
+OPTIMIZER = {'Adam':tf.keras.optimizers.Adam,
              'RMSprop':tf.keras.optimizers.RMSprop,
              'Nadam':tf.keras.optimizers.Nadam}
 
@@ -28,11 +28,11 @@ def print_available_models():
     for model in MODELS.keys():
         print(f'\t{model}')
 
-def get_model(model='unet', optimicer='Adam', lernigrate=1e-3, **kwargs):
+def get_model(model='unet', optimizer='Adam', lernigrate=1e-3, **kwargs):
     model = model.lower()
     try: 
         model_keras = MODELS[model](**kwargs)
-        model_keras.compile(OPTIMICER[optimicer](lernigrate), **COMPILE_PARAMETERS)
+        model_keras.compile(OPTIMIZER[optimizer](lernigrate), **COMPILE_PARAMETERS)
         return model_keras
     except KeyError: 
         print(f'Model {model} is not avalaible')
