@@ -2,8 +2,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import ( Conv2D,  Conv2DTranspose, 
                                     Input,  MaxPool2D, 
-                                    UpSampling2D,  Concatenate
-                                    )
+                                    UpSampling2D,  Concatenate)
 
 
 def get_model(output_channels = 3, size = 224, dropout = 0, trainable = False,name='U-Net'):
