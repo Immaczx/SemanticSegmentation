@@ -16,9 +16,9 @@ MODELS = {'fcn':get_FCN,
           'segnetvgg16':get_SegNetVGG16,
           'resunet':get_ResUnet}
 
-OPTIMICER = {'Adam':tf.keras.optimizers.Adam(),
-             'RMSprop':tf.keras.optimizers.RMSprop(),
-             'Nadam':tf.keras.optimizers.Nadam()}
+OPTIMICER = {'Adam':tf.keras.optimizers.Adam,
+             'RMSprop':tf.keras.optimizers.RMSprop,
+             'Nadam':tf.keras.optimizers.Nadam}
 
 COMPILE_PARAMETERS = {"loss":tf.keras.losses.CategoricalCrossentropy(),
           "metrics":[utils.dice_coef, utils.iou_coef]}
