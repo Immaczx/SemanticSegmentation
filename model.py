@@ -28,12 +28,11 @@ def print_available_models():
     for model in MODELS.keys():
         print(f'\t{model}')
 
-
 def get_model(model='unet', optimicer='Adam', lernigrate=1e-3, **kwargs):
     model = model.lower()
     try: 
         model_keras = MODELS[model](**kwargs)
-        model_keras.compile(optimicer(lernigrate), **COMPILE_PARAMETERS)
+        model_keras.compile(OPTIMICER[optimicer](lernigrate), **COMPILE_PARAMETERS)
         return model_keras
     except KeyError: 
         print(f'Model {model} is not avalaible')
