@@ -36,10 +36,10 @@ def get_encoder(input_shape=[None,None,3], trainable = True, name="encoder"):
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def get_decoder(skips,dropout=0):
     up_stack = [
-        upsample(512, 3,dropout=dropout),  # 4x4 -> 8x8
-        upsample(256, 3,dropout=dropout),  # 8x8 -> 16x16
-        upsample(128, 3,dropout=dropout),  # 16x16 -> 32x32
-        upsample(64, 3,dropout=dropout),   # 32x32 -> 64x64
+        upsample(512, 3, batchnorm=True, dropout=dropout),  # 4x4 -> 8x8
+        upsample(256, 3, batchnorm=True, dropout=dropout),  # 8x8 -> 16x16
+        upsample(128, 3, batchnorm=True, dropout=dropout),  # 16x16 -> 32x32
+        upsample(64, 3, batchnorm=True, dropout=dropout),   # 32x32 -> 64x64
     ]
     x = skips[-1]
     skips = reversed(skips[:-1])
@@ -54,10 +54,10 @@ def unet_mobilenet(input_shape=(128,128,3), out_channels=1, out_ActFunction='sig
 
     skips = get_encoder(input_shape=list(input.shape[1:]),  trainable = trainable)(input)
 
-    x = get_decoder(skips, dropout=0)
+    x = get_decoder(skips, dropout=0.25)
 
     last = tf.keras.layers.Conv2DTranspose(
-        out_channels, kernel_size=(1,1), strides=2,
+        out_channels, kernel_size=(3,3), strides=2,
         padding='same',activation=out_ActFunction)  #64x64 -> 128x128
 
     x = last(x)
