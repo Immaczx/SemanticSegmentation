@@ -1,5 +1,5 @@
 """
 ==========================
-GCPDS - Image Segmentation
+Image Semantic Segmentation
 ==========================
 """
