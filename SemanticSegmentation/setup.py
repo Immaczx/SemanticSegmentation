@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
    README = readme.read()
@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='semanticSegmentation',
     version='0.0.0',
-    packages=['SemanticSegmentation'],
+    packages= find_packages(),
     author='Camilo Pelaez Garcia',
     author_email='cpelaezg@unal.edu.co',
     install_requires=['scikit-image',
