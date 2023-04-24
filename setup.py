@@ -1,5 +1,5 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
    README = readme.read()
@@ -7,7 +7,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='semanticSegmentation',
+    name='SemanticSegmentation',
     version='0.0.0',
     packages= ['semanticSegmentation'],
     author='Camilo Pelaez Garcia',
