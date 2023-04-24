@@ -1,9 +1,0 @@
-recursive-include semanticSegmentation/ *
-recursive-exclude * __pycache__
-recursive-exclude * *.py[co]
-
-recursive-exclude examples/ *
-recursive-exclude test/ *
-recursive-exclude notebooks/ *
-recursive-exclude build/ *
-recursive-exclude dist/ *
