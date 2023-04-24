@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='semanticSegmentation',
     version='0.0.0',
-    packages=['class_activation_maps', 'datasets.segmentation', 'models', 'losses', 'metrics', 'visualizations', 'utils'],
+    packages=['SemanticSegmentation'],
     author='Camilo Pelaez Garcia',
     author_email='cpelaezg@unal.edu.co',
     install_requires=['scikit-image',
