@@ -12,9 +12,9 @@ from glob import glob
 import cv2
 import numpy as np
 import tensorflow as tf
-from gcpds.image_segmentation.datasets.utils import download_from_drive
-from gcpds.image_segmentation.datasets.utils import unzip
-from gcpds.image_segmentation.datasets.utils import listify
+from SemanticSegmentation.datasets.utils import download_from_drive
+from SemanticSegmentation.datasets.utils import unzip
+from SemanticSegmentation.datasets.utils import listify
 from sklearn.model_selection import train_test_split
 
 
